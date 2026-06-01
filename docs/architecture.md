@@ -21,7 +21,7 @@ hardware later is no issue.
 I chose the NoIR camera for nighttime pictures.
 The OLED display is just for debugging and easier development.
 
-[Wiring diagram](wiring.png)
+![Wiring diagram](.assets/wiring.png)
 
 I do not yet have a plan for a proper case, so I'll use a cardboard box for now.
 
@@ -33,7 +33,7 @@ I plan to upgrade the RAM to 32 GB sometime in the future.
 
 ## Software
 
-[Component Diagram](component.png)
+![Component Diagram](.assets/component.png)
 
 ### Outdoor Sensor
 

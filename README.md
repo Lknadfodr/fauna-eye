@@ -3,7 +3,7 @@
 Fauna-Eye is a wildlife observation system for my backyard. It detects
 movement, captures images, identifies animal species, and sends notifications.
 
-[Context Diagram](docs/context.png)
+![Context Diagram](docs/.assets/context.png)
 
 ## About
 
