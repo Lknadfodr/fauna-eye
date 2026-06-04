@@ -15,8 +15,8 @@ hardware later is no issue.
 
 - Raspberry Pi Zero 2 W
 - Raspberry Camera Module 3 NoIR
-- PIR Motion Sensor HC-SR501
-- Waveshare 1.3" OLED HAT
+- [PIR Motion Sensor HC-SR501](https://joy-it.net/files/files/Produkte/SEN-HC-SR501/SEN-HC-SR501_Manual_2024-04-16.pdf)
+- [Waveshare 1.3" OLED HAT](https://www.waveshare.com/wiki/1.3inch_OLED_HAT)
 
 I chose the NoIR camera for nighttime pictures.
 The OLED display is just for debugging and easier development.

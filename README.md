@@ -18,7 +18,7 @@ system.
 ### Stage 1
 
 - [x] Setup Hardware
-- [ ] Capture Image with the camera
+- [x] Capture Image with the camera
 - [ ] Trigger image from motion sensor
 - [ ] Transmit image to server
 - [ ] Persist images and metadata
@@ -39,6 +39,14 @@ system.
 - [ ] Recognize bird species (BirdNET)
 - [ ] Extend notifications
 - [ ] Build a proper hardware case
+
+## Get Started
+
+1. Enable [SPI](https://www.raspberrypi.com/documentation/computers/configuration.html#spi)
+    on the raspberry PI
+2. > sudo apt install python3-picamera2 python3-gpiozero python3-luma.oled
+3. Checkout this repository
+4. > python wildcam/main.py
 
 ## Documentation
 
