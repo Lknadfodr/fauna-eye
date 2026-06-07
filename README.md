@@ -20,10 +20,12 @@ system.
 - [x] Setup Hardware
 - [x] Capture Image with the camera
 - [ ] Trigger image from motion sensor
+- [x] Provide upload service
 - [ ] Transmit image to server
 - [ ] Persist images and metadata
 - [ ] WebUI to show and manage images
 - [ ] Send notifications
+- [ ] Queue uploads when not connected
 
 ### Stage 2
 
@@ -42,10 +44,19 @@ system.
 
 ## Get Started
 
+1. Checkout this repository
+
+### Run the server locally
+
+1. > docker compose -f develop/compose.yml up  
+
+On the first run this will also build the application.
+
+### Run the wildcam on a raspberry Pi
+
 1. Enable [SPI](https://www.raspberrypi.com/documentation/computers/configuration.html#spi)
-    on the raspberry PI
-2. > sudo apt install python3-picamera2 python3-gpiozero python3-luma.oled
-3. Checkout this repository
+2. Checkout this repository or copy the wildcam onto the Pi
+3. > sudo apt install python3-picamera2 python3-gpiozero python3-luma.oled
 4. > python wildcam/main.py
 
 ## Documentation

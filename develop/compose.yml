@@ -1,0 +1,14 @@
+# compose file to build and run images locally
+
+services:
+
+  upload:
+    build:
+      context: "../upload-service"
+    image: fauna-eye/upload:latest
+    volumes:
+      - ./images/:/app/images
+    user: "${PUID}:${PGID}"
+    ports:
+      - "50100:8080"
+

@@ -11,7 +11,7 @@ to the current prices, I decided to use the hardware I already have. Eventually
 the software modules will be containerized anyways, so deploying them on different
 hardware later is no issue.
 
-### Outdoor Sensor
+### Outdoor Wildcam
 
 - Raspberry Pi Zero 2 W
 - Raspberry Camera Module 3 NoIR
@@ -35,7 +35,7 @@ I plan to upgrade the RAM to 32 GB sometime in the future.
 
 ![Component Diagram](.assets/component.png)
 
-### Outdoor Sensor
+### Outdoor Wildcam
 
 - Raspberry PI OS
 
@@ -44,8 +44,14 @@ GPIO reading / camera / SPI protocol.
 
 ### Homeserver
 
-- TrueNAS Scale
+- TrueNAS Scale OS
 
 I plan to have one Docker container for each component, i.e. one for the
 MQTT Broker, one for the WebUI, one for the database, etc. I didn't decide yet which
-languages and frameworks to use.
+languages and frameworks to use. Currently there is:
+
+- upload-service:
+  - written in golang
+  - REST API to upload images
+  - REST API for health checks from the wildcam
+  - docker image
