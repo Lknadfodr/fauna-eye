@@ -1,3 +1,4 @@
-picamera2
-gpiozero
-luma.oled
+httpx
+dotenv
+prompt-toolkit
+pillow

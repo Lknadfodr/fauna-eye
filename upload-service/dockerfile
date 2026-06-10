@@ -9,14 +9,11 @@ COPY . .
 RUN go build -o upload-service
 
 # Runtime Image without golang. Copies the builder's output binaries
-FROM alpine:3.22
+FROM alpine:3
 WORKDIR /app
 
 COPY --from=builder /app/upload-service .
 
-RUN addgroup -S app && \
-    adduser -S app -G app
-USER app
-
 EXPOSE 8080
+
 ENTRYPOINT ["./upload-service"]

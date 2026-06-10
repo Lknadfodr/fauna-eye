@@ -11,17 +11,20 @@ import (
 
 // The ImageService processes uploaded images.
 type ImageService struct {
+	imageDir string
 }
 
-func NewImageService() *ImageService {
-	return &ImageService{}
+func NewImageService(imageDir string) *ImageService {
+	return &ImageService{
+		imageDir: imageDir,
+	}
 }
 
 // Saves the image data to a file.
 // Returns the image ID.
 func (s *ImageService) Save(src io.Reader) (string, error) {
 	id := uuid.New().String()
-	path := filepath.Join("/app/images", id+".jpg")
+	path := filepath.Join(s.imageDir, id+".jpg")
 	dst, err := os.Create(path)
 	if err != nil {
 		return id, err

@@ -1,14 +1,65 @@
-# compose file to build and run images locally
+# compose to build and run images locally
+# add a .env with PUID, PGID, REGISTRY
 
 services:
+
+  # Set the volume access rights.
+  init:
+    image: alpine:3
+    volumes:
+      - upload-data:/vol/1
+      - wildcam-data:/vol/2
+      - wildcam-logs:/vol/3
+    entrypoint: /bin/sh
+    command: -c "chown -R ${PUID}:${PGID} /vol"
+    restart: "no"
 
   upload:
     build:
       context: "../upload-service"
-    image: fauna-eye/upload:latest
+    image: "${REGISTRY}/fauna-eye/upload:latest"
     volumes:
-      - ./images/:/app/images
-    user: "${PUID}:${PGID}"
+      - upload-data:/app/data
     ports:
       - "50100:8080"
+    user: "${PUID}:${PGID}"
+    depends_on:
+      init:
+        condition: service_completed_successfully
 
+  wildcam:
+    build:
+      context: "../wildcam"
+    image: "${REGISTRY}/fauna-eye/wildcam:latest"
+    environment:
+      UPLOAD_ADDRESS: "http://upload:8080"
+    volumes: 
+      - wildcam-data:/app/data
+      - wildcam-logs:/app/logs
+    user: "${PUID}:${PGID}"
+    depends_on:
+      init:
+        condition: service_completed_successfully
+    # These allow to attach and send key commands
+    tty: true
+    stdin_open: true
+
+volumes:
+  upload-data:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/tmp/upload/data'
+  wildcam-data:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/tmp/wildcam/data'
+  wildcam-logs:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/tmp/wildcam/logs'

@@ -1,5 +1,6 @@
 import logging
 from logging.handlers import TimedRotatingFileHandler
+from pathlib import Path
 
 def configure_logging():
     """
@@ -9,7 +10,8 @@ def configure_logging():
     the application.
     """
     root_logger = logging.getLogger()
-    root_logger.setLevel(logging.DEBUG)
+    root_logger.setLevel(logging.INFO)
+    logging.getLogger("wildcam").setLevel(logging.DEBUG)
 
     formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(name)s: %(message)s")
 
@@ -17,8 +19,10 @@ def configure_logging():
     console_handler.setLevel(logging.DEBUG)
     console_handler.setFormatter(formatter)
 
+    file = Path("logs/wildcam.log")
+    file.parent.mkdir(parents=True, exist_ok=True)
     file_handler = TimedRotatingFileHandler(
-        filename="wildcam.log",
+        filename=file,
         when="midnight",
         backupCount=28,
         encoding="utf-8",

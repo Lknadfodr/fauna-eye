@@ -8,5 +8,3 @@ logs/
 
 # Dotenv is for local settings
 .env
-
-.vscode

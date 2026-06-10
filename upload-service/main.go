@@ -10,7 +10,7 @@ import (
 
 func main() {
 	config := config.Load()
-	imageService := service.NewImageService()
+	imageService := service.NewImageService(config.ImageDir)
 	uploadHandler := api.NewUploadHandler(imageService)
 	healthHandler := api.NewHealthHandler()
 
