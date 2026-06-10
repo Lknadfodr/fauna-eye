@@ -1,8 +1,0 @@
-services:
-  registry:
-    image: registry:latest
-    restart: unless-stopped
-    ports:
-      - "5000:5000"
-    volumes:
-      - .registry:/var/lib/registry

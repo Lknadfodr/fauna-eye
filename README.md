@@ -71,7 +71,7 @@ This includes a wildcam service that generates artificial images.
 
 1. Enable [SPI](https://www.raspberrypi.com/documentation/computers/configuration.html#spi)
 2. Checkout this repository or copy the wildcam onto the Pi
-3. `sudo apt install python3-picamera2 python3-gpiozero python3-luma.oled`
+3. `sudo apt install python3-picamera2 python3-gpiozero python3-luma.oled python3-prompt-toolkit`
 5. `cd wildcam && python -m wildcam`
 
 ## Documentation

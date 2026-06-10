@@ -12,7 +12,7 @@ class Inputs:
     This class abstracts from the GPIO inputs.
     """
 
-    async def run():
+    async def run(self):
         """ Starts the background task that processes input events."""
         pass
 
@@ -79,7 +79,6 @@ class GpioInputs(BaseInputs):
     def on_key3_pressed(self):
         logger.debug("Pressed Key3.")
         self._handle_coro(self._controller.clear_display())
-
 
 class KeyInputs(BaseInputs):
     def __init__(self, controller: Controller):
